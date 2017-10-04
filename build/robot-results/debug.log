@@ -1,0 +1,78 @@
+==============================================================================
+20171004 14:57:33.772 - INFO - + START SUITE: Acceptancetest [ ]
+==============================================================================
+20171004 14:57:35.107 - INFO - +- START SUITE: Acceptancetest.CSV-JSONConversion [ ]
+==============================================================================
+20171004 14:57:35.150 - INFO - +-- START TEST: CSV to JSON to CSV Yields Original [ ]
+------------------------------------------------------------------------------
+20171004 14:57:35.177 - INFO - +--- START KW: OperatingSystem.Get File [ src/test/resources/grades.csv ]
+20171004 14:57:35.289 - INFO - ${contents} = "ID","Total","Assignment 1","Assignment 2","Exam 1"
+"111278","611","146","128","337"
+"111352","867","227","228","412"
+"111373","461","96","90","275"
+"111305","835","220","217","398"
+"111399","898","22...
+20171004 14:57:35.297 - INFO - +--- END KW: OperatingSystem.Get File (118)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20171004 14:57:35.306 - INFO - +--- START KW: keywords.ConverterKeywords.Convert To Json [ ${contents} ]
+20171004 14:57:35.396 - INFO - ${json} = {
+    "colHeaders":["ID","Total","Assignment 1","Assignment 2","Exam 1"],
+    "rowHeaders":["111278","111352","111373","111305","111399","111160","111276","111241"],
+    "data":[[611,146,128,337],
+   ...
+20171004 14:57:35.402 - INFO - +--- END KW: keywords.ConverterKeywords.Convert To Json (100)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20171004 14:57:35.406 - INFO - +--- START KW: keywords.ConverterKeywords.Convert To Csv [ ${json} ]
+20171004 14:57:35.489 - INFO - ${csv} = "ID","Total","Assignment 1","Assignment 2","Exam 1"
+"111278","611","146","128","337"
+"111352","867","227","228","412"
+"111373","461","96","90","275"
+"111305","835","220","217","398"
+"111399","898","22...
+20171004 14:57:35.497 - INFO - +--- END KW: keywords.ConverterKeywords.Convert To Csv (89)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20171004 14:57:35.516 - INFO - +--- START KW: BuiltIn.Should Be Equal [ ${contents} | ${csv} ]
+20171004 14:57:35.602 - INFO - +--- END KW: BuiltIn.Should Be Equal (86)
+------------------------------------------------------------------------------
+20171004 14:57:35.616 - INFO - +-- END TEST: CSV to JSON to CSV Yields Original (462)
+------------------------------------------------------------------------------
+20171004 14:57:35.646 - INFO - +-- START TEST: JSON to CSV to JSON Yields Original [ ]
+------------------------------------------------------------------------------
+20171004 14:57:35.662 - INFO - +--- START KW: OperatingSystem.Get File [ src/test/resources/grades.json ]
+20171004 14:57:35.689 - INFO - ${contents} = {
+    "colHeaders":["ID","Total","Assignment 1","Assignment 2","Exam 1"],
+    "rowHeaders":["111278","111352","111373","111305","111399","111160","111276","111241"],
+    "data":[[611,146,128,337],
+   ...
+20171004 14:57:35.724 - INFO - +--- END KW: OperatingSystem.Get File (58)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20171004 14:57:35.745 - INFO - +--- START KW: keywords.ConverterKeywords.Convert To Csv [ ${contents} ]
+20171004 14:57:35.767 - INFO - ${csv} = "ID","Total","Assignment 1","Assignment 2","Exam 1"
+"111278","611","146","128","337"
+"111352","867","227","228","412"
+"111373","461","96","90","275"
+"111305","835","220","217","398"
+"111399","898","22...
+20171004 14:57:35.773 - INFO - +--- END KW: keywords.ConverterKeywords.Convert To Csv (38)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20171004 14:57:35.790 - INFO - +--- START KW: keywords.ConverterKeywords.Convert To Json [ ${csv} ]
+20171004 14:57:35.820 - INFO - ${json} = {
+    "colHeaders":["ID","Total","Assignment 1","Assignment 2","Exam 1"],
+    "rowHeaders":["111278","111352","111373","111305","111399","111160","111276","111241"],
+    "data":[[611,146,128,337],
+   ...
+20171004 14:57:35.833 - INFO - +--- END KW: keywords.ConverterKeywords.Convert To Json (41)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20171004 14:57:35.838 - INFO - +--- START KW: keywords.ConverterKeywords.Json Strings Are Equal [ ${contents} | ${json} ]
+20171004 14:57:36.027 - INFO - ${same} = True
+20171004 14:57:36.065 - INFO - +--- END KW: keywords.ConverterKeywords.Json Strings Are Equal (221)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+20171004 14:57:36.092 - INFO - +--- START KW: BuiltIn.Should Be True [ ${same} ]
+20171004 14:57:36.137 - INFO - +--- END KW: BuiltIn.Should Be True (56)
+------------------------------------------------------------------------------
+20171004 14:57:36.167 - INFO - +-- END TEST: JSON to CSV to JSON Yields Original (498)
+------------------------------------------------------------------------------
+20171004 14:57:36.388 - INFO - +- END SUITE: Acceptancetest.CSV-JSONConversion (2406)
+==============================================================================
+20171004 14:57:36.510 - INFO - + END SUITE: Acceptancetest (4530)
+==============================================================================
